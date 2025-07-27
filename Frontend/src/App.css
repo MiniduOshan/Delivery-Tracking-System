@@ -1,0 +1,36 @@
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+}
+
+input, button {
+  padding: 8px;
+  margin-top: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+form {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.delivery-info {
+  background-color: #f0f0f0;
+  padding: 1rem;
+  border-radius: 5px;
+}
