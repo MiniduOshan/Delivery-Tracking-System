@@ -26,3 +26,6 @@ type Delivery record {|
     string deliveredDate?;
     json...;
 |};
+
+
+//Add the rest of records
