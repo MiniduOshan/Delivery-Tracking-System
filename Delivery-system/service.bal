@@ -9,5 +9,9 @@ service /Delivery\-Tracking on new http:Listener(9090) {
     # + return - string name with hello message or error
     resource function post deliveries(DeliveryInsert deliveryInsert) {
         
+
+       // TODO (Add all the functions from type.bal and email module)
+
+
     }
 }
