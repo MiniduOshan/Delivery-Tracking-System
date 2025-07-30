@@ -10,7 +10,7 @@ service /Delivery\-Tracking on new http:Listener(9090) {
     resource function post deliveries(DeliveryInsert deliveryInsert) {
         
 
-       // TODO (Add all the functions from type.bal and email module)
+       //TODO (Add all the functions from type.bal and email module)
        //Add config.toml and declare for undefined
        //Add tables for records
 
