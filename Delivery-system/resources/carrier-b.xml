@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Trackings>
+  <Tracking>
+    <trackingCode>SAMPLE-B-100</trackingCode>
+    <carrier>CarrierB</carrier>
+    <location>Airport B</location>
+    <timestamp>2025-08-03T08:45:00Z</timestamp>
+    <status>IN_TRANSIT</status>
+  </Tracking>
+  <Tracking>
+    <trackingCode>SAMPLE-B-101</trackingCode>
+    <carrier>CarrierB</carrier>
+    <location>Customer City</location>
+    <timestamp>2025-08-04T12:10:00Z</timestamp>
+    <status>DELIVERED</status>
+  </Tracking>
+</Trackings>

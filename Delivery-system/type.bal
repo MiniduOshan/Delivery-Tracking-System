@@ -1,31 +1,72 @@
-import ballerina/constraint;
-enum DeliveryStatus {
-    PENDING="pending",
-    IN_TRANSIT="in_transit",
-    DELIVERED="delivered",
-    RETURNED="returned"
-};
+import ballerina/time;
 
-type DeliveryInsert record {|
-    @constraint:String{ // String constraints for validation
-        minLength: 1,
-        maxLength: 10
-    }
+// Enum-like string constants
+public const PENDING = "PENDING";
+public const IN_TRANSIT = "IN_TRANSIT";
+public const DELIVERED = "DELIVERED";
+public type Status PENDING|IN_TRANSIT|DELIVERED;
+
+// Core record stored in the in-memory table
+public type Delivery record {|
+    // key
+    readonly string trackingCode;
+
+    // customer details
     string customerId;
     string customerEmail;
-    string address;
+
+    // parcel meta
     decimal weightKg;
-    json...;
-|};
+    string? origin;
+    string? destination;
+    string? description;
 
-type Delivery record {|
-    *DeliveryInsert; // Inherits all fields from DeliveryInsert
-    string trackingCode;
-    DeliveryStatus status=PENDING; // Default status is PENDING
+    // lifecycle
+    Status status;
+    string createdDate;
+    string? deliveredDate;
+
+    // pricing
     decimal cost;
-    string deliveredDate?;
-    json...;
 |};
 
+// POST /deliveries payload (server derives trackingCode, cost, createdDate, default status)
+public type DeliveryInsert record {|
+    string customerId;
+    string customerEmail;
+    decimal weightKg;
+    string? origin;
+    string? destination;
+    string? description;
+|};
 
-//Add the rest of records
+// PATCH /deliveries/{trackingCode} payload
+public type DeliveryUpdate record {|
+    Status status;
+    string? deliveredDate;
+|};
+
+// GET /summary response
+public type Summary record {|
+    int totalDeliveries;
+    decimal averageCost;
+    record {|
+        int pending;
+        int inTransit;
+        int delivered;
+    |} statusBreakdown;
+|};
+
+// Monitoring feed item
+public type Tracking record {|
+    string trackingCode;
+    string carrier;
+    string location;
+    string timestamp; // ISO-8601 string
+    Status status;
+|};
+
+// XML mapping root for Carrier B
+public type Trackings record {|
+    Tracking[] Tracking;
+|};

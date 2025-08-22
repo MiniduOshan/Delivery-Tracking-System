@@ -1,0 +1,16 @@
+[
+  {
+    "trackingCode": "SAMPLE-A-001",
+    "carrier": "CarrierA",
+    "location": "Warehouse A",
+    "timestamp": "2025-08-01T10:00:00Z",
+    "status": "IN_TRANSIT"
+  },
+  {
+    "trackingCode": "SAMPLE-A-002",
+    "carrier": "CarrierA",
+    "location": "Hub X",
+    "timestamp": "2025-08-02T15:30:00Z",
+    "status": "PENDING"
+  }
+]
